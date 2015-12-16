@@ -1,6 +1,6 @@
 ## Overview
 
-This charm provides computation and storage resources for an Apache Hadoop
+This charm provides computation resources for an Apache Hadoop
 deployment, and is intended to be used only as a part of that deployment.
 This document describes how this charm connects to and interacts with the
 other components of the deployment.
@@ -8,7 +8,7 @@ other components of the deployment.
 
 ## Provided Relations
 
-### datanode (interface: dfs-slave)
+### nodemanager (interface: mapred-slave)
 
 This relation connects this charm to the apache-hadoop-hdfs-master charm.
 It is a bi-directional interface, with the following keys being exchanged:

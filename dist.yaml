@@ -9,10 +9,13 @@ ports:
     # Only expose ports serving a UI or external API (i.e., namenode and
     # resourcemanager).  Communication among units within the cluster does
     # not need ports to be explicitly opened.
-    dn_webapp_http:
-        port: 50075
-        exposed_on: 'datanode'
+    nm_webapp_http:
+        port: 8042
+        exposed_on: 'nodemanager'
     # TODO: support SSL
     #dn_webapp_https:
     #    port: 50475
-    #    exposed_on: 'datanode'
+    #    exposed_on: 'compute-slave-hdfs'
+    #nm_webapp_https:
+    #    port: 8044
+    #    exposed_on: 'compute-slave-yarn'

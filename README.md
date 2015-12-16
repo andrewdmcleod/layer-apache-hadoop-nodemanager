@@ -4,10 +4,9 @@ The Apache Hadoop software library is a framework that allows for the
 distributed processing of large data sets across clusters of computers
 using a simple programming model.
 
-This charm deploys a compute / slave node running the NodeManager
-and DataNode components of
+This charm deploys a slave node running the NodeManager component
 [Apache Hadoop 2.7.1](http://hadoop.apache.org/docs/r2.7.1/),
-which provides computation and storage resources to the platform.
+which provides computation resources to the platform.
 
 ## Usage
 
@@ -30,8 +29,8 @@ included in the bigdata bundles linked above:
 
 ### Scaling
 
-The compute-slave node is the "workhorse" of the Apache Hadoop platform.
-To scale your deployment's performance, you can simply add more compute-slave
+The nodemanager node is the "workhorse" of the Apache Hadoop platform.
+To scale your deployment's performance, you can simply add more nodemanager 
 units.  For example, to add three mode units:
 
     juju add-unit compute-slave -n 3
@@ -51,9 +50,9 @@ them to begin collecting metrics.
 
 For example:
 
-    juju add-relation compute-slave ganglia:master
+    juju add-relation nodemnager ganglia:master
     juju add-relation yarn-master ganglia:master
-    juju set compute-slave ganglia_metrics=true
+    juju set nodemanager ganglia_metrics=true
     juju set yarn-master ganglia_metrics=true
 
 
