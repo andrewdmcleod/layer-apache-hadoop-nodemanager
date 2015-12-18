@@ -35,9 +35,11 @@ def waiting(resourcemanager):
 def start_nodemanager(resourcemanager):
     hadoop = get_hadoop_base()
     yarn = YARN(hadoop)
-    yarn.configure_nodemanager(resourcemanager.host(), resourcemanager.resourcemanager_port(), resourcemanager.hs_http(), resourcemanager.hs_ipc())
+    yarn.configure_nodemanager(resourcemanager.host(), resourcemanager.port(), resourcemanager.hs_http(), resourcemanager.hs_ipc())
     #yarn.configure_nodemanager()
     utils.install_ssh_key('ubuntu', resourcemanager.ssh_key())
+    utils.update_kv_hosts(resourcemanager.hosts_map())
+    utils.manage_etc_hosts()
     yarn.start_nodemanager()
     resourcemanager.register()
     hadoop.open_ports('nodemanager')
