@@ -12,19 +12,6 @@ def blocked():
 
 
 @when('hadoop.installed', 'resourcemanager.related')
-def set_spec(resourcemanager):
-    hadoop = get_hadoop_base()
-    resourcemanager.set_nodemanager_spec(hadoop.spec())
-
-
-@when('resourcemanager.spec.mismatch')
-def spec_mismatch(resourcemanager):
-    hookenv.status_set('blocked',
-                       'Spec mismatch with ResourceManager: {} != {}'.format(
-                           resourcemanager.nodemanager_spec(), resourcemanager.resourcemanager_spec()))
-
-
-@when('hadoop.installed', 'resourcemanager.related')
 @when_not('resourcemanager.spec.mismatch', 'resourcemanager.ready', 'nodemanager.started')
 def waiting(resourcemanager):
     hookenv.status_set('waiting', 'Waiting for ResourceManager')
