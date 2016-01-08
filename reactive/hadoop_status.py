@@ -16,5 +16,5 @@ def waiting(resourcemanager):
 
 
 @when('nodemanager.started')
-def ready(resourcemanager):
+def ready():
     hookenv.status_set('active', 'Ready')
