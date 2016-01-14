@@ -11,7 +11,7 @@ def start_nodemanager(resourcemanager):
     yarn = YARN(hadoop)
     yarn.configure_nodemanager(resourcemanager.resourcemanagers()[0], resourcemanager.port(),
                                resourcemanager.hs_http(), resourcemanager.hs_ipc())
-    utils.install_ssh_key('ubuntu', resourcemanager.ssh_key())
+    utils.install_ssh_key('yarn', resourcemanager.ssh_key())
     utils.update_kv_hosts(resourcemanager.hosts_map())
     utils.manage_etc_hosts()
     yarn.start_nodemanager()
