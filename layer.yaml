@@ -1,1 +1,1 @@
-includes: ['layer:hadoop-base', 'interface:nodemanager']
+includes: ['layer:hadoop-base', 'interface:mapred-slave']
