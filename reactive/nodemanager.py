@@ -15,7 +15,6 @@ def start_nodemanager(resourcemanager):
     utils.update_kv_hosts(resourcemanager.hosts_map())
     utils.manage_etc_hosts()
     yarn.start_nodemanager()
-    resourcemanager.register()
     hadoop.open_ports('nodemanager')
     set_state('nodemanager.started')
 
