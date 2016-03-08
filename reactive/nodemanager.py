@@ -9,8 +9,9 @@ from jujubigdata import utils
 def start_nodemanager(resourcemanager):
     hadoop = get_hadoop_base()
     yarn = YARN(hadoop)
-    yarn.configure_nodemanager(resourcemanager.resourcemanagers()[0], resourcemanager.port(),
-                               resourcemanager.hs_http(), resourcemanager.hs_ipc())
+    yarn.configure_nodemanager(
+        resourcemanager.resourcemanagers()[0], resourcemanager.port(),
+        resourcemanager.hs_http(), resourcemanager.hs_ipc())
     utils.install_ssh_key('yarn', resourcemanager.ssh_key())
     utils.update_kv_hosts(resourcemanager.hosts_map())
     utils.manage_etc_hosts()
