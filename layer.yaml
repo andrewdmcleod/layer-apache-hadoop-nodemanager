@@ -1,1 +1,4 @@
-includes: ['layer:hadoop-base', 'interface:mapred-slave']
+includes:
+  - 'layer:hadoop-base'
+  - 'layer:hadoop-ganglia'
+  - 'interface:mapred-slave'
