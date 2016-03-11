@@ -10,5 +10,3 @@ tags: ["applications", "bigdata", "hadoop", "apache"]
 provides:
   resourcemanager:
     interface: mapred-slave
-  ganglia:
-    interface: monitor
